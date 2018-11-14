@@ -8,7 +8,7 @@ RSpec::Matchers.define :match_schema do |schema_name|
     @errors.none?
   end
 
-  failure_message_for_should do
+  failure_message do
     @errors.first
   end
 
