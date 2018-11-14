@@ -1,0 +1,2 @@
+Fabricator(:ship) do
+end
