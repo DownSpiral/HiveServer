@@ -9,7 +9,7 @@ export const login = () => {
     const state = getState().userReducer;
     const user = { email: state.emailText, password: state.passwordText };
     //ask the server if the credentials are ok
-    axios.post("http://ericw-appliance-rdqrpqhkdd.dynamic-m.com:3000/login", { user })
+    axios.post("/login", { user })
     .then(res => {
       dispatch({ type: 'LOGIN', res });
     }).catch(err => {
