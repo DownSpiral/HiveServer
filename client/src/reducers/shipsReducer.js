@@ -6,12 +6,12 @@ export default (state = { ships: [] }, action) => {
     case 'ADD_SHIP':
       return {
         ...state,
-        ships: [...state.ships, action.payload]
+        ships: [...state.ships, { shipName: action.shipName, id: action.id } ]
       }
     case 'REMOVE_SHIP':
       return {
         ...state,
-        ships: [...state.ships, action.payload]
+        ships: state.ships.filter( ship => ship.id !== action.id )
       }
     default:
       return state

@@ -2,9 +2,9 @@
  src/reducers/rootReducer.js
 */
 import { combineReducers } from 'redux';
-import simpleReducer from './simpleReducer';
 import shipsReducer from './shipsReducer';
+import userReducer from './userReducer';
 export default combineReducers({
-  simpleReducer,
-  shipsReducer
+  shipsReducer,
+  userReducer
 });
