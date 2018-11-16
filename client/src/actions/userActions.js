@@ -7,9 +7,9 @@ export const login = () => {
   return (dispatch, getState) => {
     //get the user's login info from the store
     const state = getState().userReducer;
-    const user = { email: state.emailText, password: state.passwordText };
+    const user = { email: state.loginUsername, password: state.loginPassword };
     //ask the server if the credentials are ok
-    axios.post("/login", { user })
+    axios.post("http://ericw-appliance-rdqrpqhkdd.dynamic-m.com:3000/login", { user })
     .then(res => {
       dispatch({ type: 'LOGIN', res });
     }).catch(err => {
@@ -22,14 +22,22 @@ export const signup = () => {
   return (dispatch, getState) => {
     //get the user's login info from the store
     const state = getState().userReducer;
-    const user = { email: state.emailText, password: state.passwordText };
-    //ask the server if the credentials are ok
-    axios.post("http://ericw-appliance-rdqrpqhkdd.dynamic-m.com:3000/login", { user })
-    .then(res => {
-      dispatch({ type: 'LOGIN', res });
-    }).catch(err => {
-      dispatch({ type: 'LOGIN_FAILED', err });
-    });
+    if (state.signupPassword === state.signupConfirmPassword) {
+      const user = {
+        username: state.signupUsername,
+        email: state.signupEmail,
+        password: state.signupPassword
+      };
+      //ask the server if the credentials are ok
+      axios.post("http://ericw-appliance-rdqrpqhkdd.dynamic-m.com:3000/signup", { user })
+      .then(res => {
+        dispatch({ type: 'SIGNUP', res });
+      }).catch(err => {
+        dispatch({ type: 'SIGNUP_FAILED', err });
+      });
+    } else {
+      dispatch({ type: 'SIGNUP_FAILED', err: "mismatched passwords" });
+    }
   }
 }
 

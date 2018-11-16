@@ -1,7 +1,18 @@
 /*
  src/reducers/userReducer.js
 */
-export default (state = { emailText: "", passwordText: "" }, action) => {
+const initialState = {
+  loginUsername: "",
+  loginPassword: "",
+  signupUsername: "",
+  signupEmail: "",
+  signupPassword: "",
+  signupConfirmPassword: "",
+  isLoginModalOpen: false,
+  isSignupModalOpen: false,
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_LOGIN_USERNAME':
       return { ...state, loginUsername: action.text }

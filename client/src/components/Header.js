@@ -62,7 +62,7 @@ class Header extends Component {
             <button onClick={ (e) => this.props.login() }>Login</button>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={ () => this.closeLoginModal() }>Close</Button>
+            <Button onClick={ () => this.props.closeLoginModal() }>Close</Button>
           </Modal.Footer>
         </Modal>
 
@@ -124,7 +124,7 @@ class Header extends Component {
                     type="password"
                     value={ this.props.signupConfirmPassword }
                     placeholder="Confirm password"
-                    onChange={ (e) => this.props.changeSignupConfrimPassword(e.target.value) }
+                    onChange={ (e) => this.props.changeSignupConfirmPassword(e.target.value) }
                   />
                 </FormGroup>
               </form>
