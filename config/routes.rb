@@ -11,5 +11,9 @@ Rails.application.routes.draw do
       registrations: 'registrations'
     }
 
+  scope 'user' do
+    get 'ships', to: 'ships#index'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

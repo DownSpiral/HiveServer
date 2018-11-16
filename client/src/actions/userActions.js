@@ -9,7 +9,7 @@ export const login = () => {
     const state = getState().userReducer;
     const user = { email: state.loginUsername, password: state.loginPassword };
     //ask the server if the credentials are ok
-    axios.post("http://ericw-appliance-rdqrpqhkdd.dynamic-m.com:3000/login", { user })
+    axios.post("/login", { user })
     .then(res => {
       dispatch({ type: 'LOGIN', res });
     }).catch(err => {
@@ -29,7 +29,7 @@ export const signup = () => {
         password: state.signupPassword
       };
       //ask the server if the credentials are ok
-      axios.post("http://ericw-appliance-rdqrpqhkdd.dynamic-m.com:3000/signup", { user })
+      axios.post("/signup", { user })
       .then(res => {
         dispatch({ type: 'SIGNUP', res });
       }).catch(err => {
