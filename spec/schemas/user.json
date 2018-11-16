@@ -4,6 +4,7 @@
   "properties": {
     "id": { "type": "integer" },
     "email": { "type": "string" },
+    "username": { "type": "string" },
     "created_at": { "type": "string" },
     "updated_at": { "type": "string" }
 	}
