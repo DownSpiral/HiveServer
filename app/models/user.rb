@@ -8,5 +8,5 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          jwt_revocation_strategy: JWTBlacklist
 
-  has_many :ships, dependent: :destroy
+  has_many :ais, dependent: :destroy
 end
